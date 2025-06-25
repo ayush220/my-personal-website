@@ -1,4 +1,5 @@
 /* Base Styles */
+/* Light Theme (default) */
 :root {
     --primary-color: #5e60ce;
     --primary-gradient: linear-gradient(135deg, #5e60ce 0%, #6930c3 100%);
@@ -17,6 +18,40 @@
     --transition: all 0.3s ease;
     --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --border-radius: 12px;
+    --header-bg: rgba(255, 255, 255, 0.98);
+    --footer-bg: #f8f9fa;
+    --border-color: #eaeaea;
+    --input-bg: #ffffff;
+    --input-border: #ddd;
+    --hero-bg: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    --about-heading-bg: #f8f9fa;
+    --testimonial-bg: #ffffff;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #6C63FF;
+    --primary-gradient: linear-gradient(135deg, #6C63FF 0%, #8A7FFF 100%);
+    --secondary-color: #64dfdf;
+    --secondary-gradient: linear-gradient(135deg, #64dfdf 0%, #80ffdb 100%);
+    --dark-color: #f8f9fa;
+    --light-color: #2b2d42;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f8f9fa;
+    --text-light: #b0b0b0;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --header-bg: rgba(18, 18, 18, 0.98);
+    --footer-bg: #121212;
+    --border-color: #333;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+    --hero-bg: linear-gradient(135deg, rgba(30, 30, 40, 0.95) 0%, rgba(20, 20, 30, 0.95) 100%);
+    --contact-bg: #1a1a1a;
+    --about-heading-bg: #121212;
+    --testimonial-bg: #121212;
 }
 
 * {
@@ -153,22 +188,18 @@ img {
 
 /* Header & Navigation */
 header {
+    padding: 20px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     z-index: 1000;
-    padding: 20px 0;
-    transition: all 0.4s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header.scrolled {
     padding: 15px 0;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: var(--header-bg);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -249,7 +280,7 @@ nav {
     display: block;
     height: 3px;
     width: 100%;
-    background-color: var(--dark-color);
+    background-color: var(--text-color);
     border-radius: 3px;
     transition: var(--transition);
 }
@@ -269,8 +300,9 @@ nav {
 /* Hero Section */
 .hero {
     padding: 150px 0 150px;
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    background: var(--hero-bg);
     position: relative;
+    transition: background 0.3s ease;
     overflow: hidden;
     min-height: 90vh;
     display: flex;
@@ -451,6 +483,11 @@ nav {
     position: relative;
     overflow: hidden;
     z-index: 1;
+}
+
+[data-theme="dark"] .social-links a {
+    background-color: #333;
+    color: #fff;
 }
 
 .social-links a::before {
@@ -640,7 +677,8 @@ body.modal-open .modal ~ * {
 /* Testimonials Section */
 .testimonials-section {
     padding: 100px 0;
-    background-color: var(--light-color);
+    background-color: var(--testimonial-bg);
+    transition: background-color 0.3s ease;
 }
 
 .section-subtitle {
@@ -970,9 +1008,10 @@ body.modal-open .modal ~ * {
 /* Contact Section */
 .contact {
     padding: 120px 0;
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    background: var(--hero-bg);
     position: relative;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .contact::before {
@@ -1031,6 +1070,14 @@ body.modal-open .modal ~ * {
 
 .contact-item i {
     font-size: 1.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+[data-theme="dark"] .contact-item i {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1216,7 +1263,7 @@ footer::before {
 }
 
 .footer-social a:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     transform: translateY(-3px);
 }
 
@@ -1233,10 +1280,11 @@ footer::before {
 /* Page Header */
 .page-header {
     padding: 180px 0 100px;
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    background: var(--hero-bg);
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .page-header::before {
@@ -1399,9 +1447,10 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    background: var(--hero-bg);
     position: relative;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .thank-you-section::before {
@@ -1725,6 +1774,74 @@ footer::before {
 .tags a:hover {
     background-color: var(--primary-color);
     color: #fff;
+}
+
+/* Theme Toggle Switch */
+.theme-switch-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.theme-icon {
+    margin: 0 5px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive Styles */
