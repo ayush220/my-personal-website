@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Rahangdale - Personal Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">Ayush Rahangdale</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <!-- <li><a href="blog.html">Blog</a></li> -->
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <p class="intro-text">I'm a Software Engineer</p>
+                    <p class="specialty">specializing in enterprise application development and API design.</p>
+                    <div class="social-links">
+                        <a href="mailto:ayushr2208@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-center">
+                    <div class="profile-frame">
+                        <img src="images/profile1.png" alt="Ayush Rahangdale" class="profile-image">
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <h1>Ayush<br>Rahangdale</h1>
+                    <p class="subtitle">(yes, it's pronounced eye-yush)</p>
+                    <div class="cta-buttons">
+                        <a href="about.html" class="btn btn-primary">About Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Blog section hidden until content is ready -->
+    <!--
+    <section class="latest-posts">
+        <div class="container">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Blog Post 1">
+                    </div>
+                    <div class="post-info">
+                        <span class="post-date">June 25, 2025</span>
+                        <h3>Blog Post Title One</h3>
+                        <p>A brief excerpt from the blog post to give readers an idea of what it's about.</p>
+                        <a href="blog.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Blog Post 2">
+                    </div>
+                    <div class="post-info">
+                        <span class="post-date">June 20, 2025</span>
+                        <h3>Blog Post Title Two</h3>
+                        <p>A brief excerpt from the blog post to give readers an idea of what it's about.</p>
+                        <a href="blog.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="center-button">
+                <a href="blog.html" class="btn btn-primary">View All Posts</a>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>ayushr2208@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Hyderabad, Telangana, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formsubmit.co/ayushr2208@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New message from your website!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://ayush2208.github.io/my-personal-website/thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Ayush Rahangdale</a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <!-- <li><a href="blog.html">Blog</a></li> -->
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ayush Rahangdale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
