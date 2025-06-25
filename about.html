@@ -107,8 +107,23 @@
                     </div>
                     
                     <div class="cta-buttons">
-                        <a href="Ayush_Rahangdale_CV.zip" class="btn btn-primary" download>Download Resume</a>
-                        <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
+                        <button id="preview-resume-btn" class="btn btn-primary">Resume</button>
+                        <a href="index.html#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                    
+                    <!-- Resume Preview Modal -->
+                    <div id="resume-modal" class="modal">
+                        <div class="modal-backdrop"></div>
+                        <div class="modal-content">
+                            <span class="close-modal">&times;</span>
+                            <div class="modal-header">
+                                <h2>Resume</h2>
+                                <a href="files/Ayush_Rahangdale_Resume.pdf" class="btn btn-sm btn-primary" download>Download</a>
+                            </div>
+                            <div class="resume-preview-container">
+                                <iframe src="files/Ayush_Rahangdale_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" class="resume-preview" frameborder="0"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +181,6 @@
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
