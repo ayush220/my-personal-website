@@ -93,4 +93,55 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('scrolled');
         }
     });
+    
+    // Resume Preview Modal
+    const previewResumeBtn = document.getElementById('preview-resume-btn');
+    const resumeModal = document.getElementById('resume-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    if (previewResumeBtn && resumeModal) {
+        // Open modal when preview button is clicked
+        previewResumeBtn.addEventListener('click', function() {
+            resumeModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+            document.body.classList.add('modal-open'); // Add class to hide footer and other elements
+        });
+        
+        // Close modal when X is clicked
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                resumeModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                document.body.classList.remove('modal-open'); // Remove class to show footer again
+            });
+        }
+        
+        // Close modal when clicking on the backdrop
+        const modalBackdrop = document.querySelector('.modal-backdrop');
+        if (modalBackdrop) {
+            modalBackdrop.addEventListener('click', function() {
+                resumeModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.classList.remove('modal-open'); // Remove class to show footer again
+            });
+        }
+        
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === resumeModal) {
+                resumeModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.classList.remove('modal-open'); // Remove class to show footer again
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && resumeModal.style.display === 'block') {
+                resumeModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.classList.remove('modal-open'); // Remove class to show footer again
+            }
+        });
+    }
 });
