@@ -123,15 +123,13 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="https://formsubmit.co/ayushr2208@gmail.com" method="POST">
-                        <!-- FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="New message from your website!">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://ayush220.github.io/my-personal-website/thank-you.html">
-                        <input type="hidden" name="_autoresponse" value="Thank you for your message! I will get back to you soon.">
-                        <input type="hidden" name="_captcha" value="true">
-                        <input type="text" name="_honey" style="display:none">
-                        
+                    <!-- Google Form integration -->
+                    <div class="google-form-container">
+                        <iframe id="contact-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdCVlDJOH7FxRvDPQQeOTJD2Uu_HHK-JJNmrLwKuqFbLLuDpA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    </div>
+                    
+                    <!-- Hidden native form for styling reference -->
+                    <form id="contactForm" style="display: none;">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
