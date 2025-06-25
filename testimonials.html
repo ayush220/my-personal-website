@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | Ayush Rahangdale</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('l_pp6ArA4M8facPzS');
+        })();
+    </script>
+    <script>
+        // Simple inline JavaScript for testimonial functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const testimonialContainer = document.getElementById('testimonial-container');
+            const showFormBtn = document.getElementById('showFormBtn');
+            const closeFormBtn = document.getElementById('closeFormBtn');
+            const formContainer = document.getElementById('testimonialFormContainer');
+            const testimonialForm = document.getElementById('testimonialForm');
+            const formStatus = document.getElementById('form-status');
+            
+            // Function to load testimonials from JSON file
+            function loadTestimonials() {
+                fetch('data/testimonials.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        displayTestimonials(data);
+                    })
+                    .catch(error => {
+                        console.error('Error loading testimonials:', error);
+                        // If there's an error, show a message or fallback testimonials
+                        testimonialContainer.innerHTML = '<p>Unable to load testimonials. Please try again later.</p>';
+                    });
+            }
+            
+            // Function to display testimonials
+            function displayTestimonials(testimonials) {
+                // Clear existing testimonials
+                testimonialContainer.innerHTML = '';
+                
+                // Add each testimonial to the container
+                testimonials.forEach(testimonial => {
+                    const initials = testimonial.name.split(' ').map(name => name[0]).join('');
+                    
+                    const testimonialCard = document.createElement('div');
+                    testimonialCard.className = 'testimonial-card';
+                    testimonialCard.innerHTML = `
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <span>${initials}</span>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-name">${testimonial.name}</div>
+                                <div class="author-position">${testimonial.position}</div>
+                                <div class="author-company">${testimonial.company}</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"${testimonial.content}"</p>
+                        </div>
+                    `;
+                    
+                    testimonialContainer.appendChild(testimonialCard);
+                });
+            }
+            
+            // Load testimonials on page load
+            loadTestimonials();
+            
+            // Show form when button is clicked
+            if (showFormBtn && formContainer) {
+                showFormBtn.addEventListener('click', function() {
+                    formContainer.style.display = 'block';
+                    showFormBtn.style.display = 'none';
+                    window.scrollTo({
+                        top: formContainer.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Close form when X is clicked
+            if (closeFormBtn && formContainer) {
+                closeFormBtn.addEventListener('click', function() {
+                    formContainer.style.display = 'none';
+                    showFormBtn.style.display = 'block';
+                });
+            }
+            
+            // Handle form submission
+            if (testimonialForm) {
+                testimonialForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const position = document.getElementById('position').value;
+                    const company = document.getElementById('company').value;
+                    const testimonialText = document.getElementById('testimonial').value;
+                    const email = document.getElementById('email').value;
+                    
+                    // Show sending status
+                    formStatus.textContent = 'Sending your testimonial...';
+                    formStatus.style.color = '#6C63FF';
+                    
+                    // Send email using Email.js service
+                    const templateParams = {
+                        from_name: name,
+                        from_email: email,
+                        position: position,
+                        company: company,
+                        testimonial: testimonialText
+                    };
+                    
+                    // EmailJS configuration - use your service ID and testimonial-specific template ID
+                    emailjs.send('service_fe4qvxr', 'template_hurs0cn', templateParams, 'l_pp6ArA4M8facPzS')
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            
+                            // Show review message
+                            formStatus.innerHTML = '<div class="success-message">Thanks! Your testimonial will be reviewed and published soon.</div>';
+                            formStatus.style.color = 'green';
+                            
+                            // Reset the form
+                            testimonialForm.reset();
+                            
+                            // Close the form after a delay
+                            setTimeout(function() {
+                                formContainer.style.display = 'none';
+                                showFormBtn.style.display = 'block';
+                            }, 4000);
+                            
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            formStatus.textContent = 'Failed to submit testimonial. Please try again.';
+                            formStatus.style.color = 'red';
+                        });
+                });
+            }
+        });
+    </script>
+    <style>
+        /* Additional styles for testimonial page */
+        .testimonial-form-container {
+            display: none;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            background-image: 
+                linear-gradient(135deg, rgba(248, 249, 250, 0.97) 0%, rgba(240, 242, 245, 0.97) 100%);
+        }
+        
+        .testimonial-form-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(94, 96, 206, 0.1) 0%, rgba(105, 48, 195, 0.1) 100%);
+            z-index: -1;
+        }
+        
+        .testimonial-form-container::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(100, 223, 223, 0.1) 0%, rgba(128, 255, 219, 0.1) 100%);
+            z-index: -1;
+        }
+        
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-header h2 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .close-form {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .close-form:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">Ayush Rahangdale</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What People Say</h2>
+            <p class="section-subtitle">Feedback from colleagues I've worked with</p>
+            
+            <div class="testimonial-grid" id="testimonial-container">
+                <!-- Testimonials will be loaded here dynamically -->
+                <!-- Example testimonial card for structure -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <span>PT</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <h3>Priyabrata Tripathy</h3>
+                            <p>Senior Consultant</p>
+                            <p class="company">Deloitte India (Offices of the US)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Ayush is highly skilled in Java, having developed various libraries as well as complex modules for the project team and mentored junior developers in coding best practices. It was a pleasure working with him on a fast-paced automation project."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-button">
+                <button id="showFormBtn" class="btn btn-primary">Share Your Experience</button>
+            </div>
+            
+            <!-- Testimonial Form Container (Directly on page, no modal) -->
+            <div id="testimonialFormContainer" class="testimonial-form-container">
+                <div class="form-header">
+                    <h2>Share Your Experience</h2>
+                    <span class="close-form" id="closeFormBtn">&times;</span>
+                </div>
+                <p class="modal-intro">Have you worked with me before? I'd love to hear about your experience and showcase your feedback on my website.</p>
+                
+                <form id="testimonialForm" class="testimonial-form">
+                    <div class="form-group">
+                        <label for="name">Full Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Current Position*</label>
+                        <input type="text" id="position" name="position" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name*</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonial">Your Testimonial*</label>
+                        <textarea id="testimonial" name="testimonial" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email (will not be displayed)*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div id="form-status" class="form-status"></div>
+                    <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal removed, using direct form on page instead -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Ayush Rahangdale</a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ayush Rahangdale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts moved to head with defer attribute -->
+</body>
+</html>
