@@ -1,0 +1,245 @@
+/* Dark Mode Specific Styles */
+[data-theme="dark"] {
+    /* Form elements */
+    --form-bg: #1e1e1e;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+    --input-text: #f8f9fa;
+    --placeholder-color: #aaa;
+    --testimonial-bg: #121212;
+}
+
+/* Dark mode form inputs */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: #141824;
+    border: 1px solid #2d3748;
+    color: #f8f9fa;
+    border-radius: 4px;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    background-color: #141824;
+    border-color: #6C63FF;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #718096;
+}
+
+/* Dark mode testimonial form */
+[data-theme="dark"] .testimonial-form-container {
+    background-color: #1e2130;
+    background-image: none !important;
+    color: #f8f9fa;
+    border: 1px solid #2d3748;
+}
+
+[data-theme="dark"] .form-header h2 {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] .modal-intro {
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .form-group label {
+    color: #cbd5e0;
+}
+
+/* Dark mode testimonial cards */
+[data-theme="dark"] .testimonial-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .testimonial-author .author-name {
+    color: #fff;
+}
+
+[data-theme="dark"] .testimonial-author .author-company {
+    color: #ddd;
+}
+
+/* Dark mode footer */
+[data-theme="dark"] footer {
+    background-color: var(--footer-bg);
+}
+
+[data-theme="dark"] .footer-bottom p {
+    color: #aaa;
+}
+
+/* Dark mode about page and page headers */
+[data-theme="dark"] .about-hero,
+[data-theme="dark"] .page-header {
+    background-color: var(--about-heading-bg);
+}
+
+[data-theme="dark"] .about-content h2,
+[data-theme="dark"] .about-content h3,
+[data-theme="dark"] .page-header h1 {
+    color: #fff;
+}
+
+/* Dark mode social icons */
+[data-theme="dark"] .contact-item i {
+    background: var(--primary-gradient);
+}
+
+[data-theme="dark"] .social-links a {
+    background-color: #333;
+    color: #fff;
+}
+
+[data-theme="dark"] .footer-social a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+[data-theme="dark"] .footer-social a:hover {
+    background-color: var(--primary-color);
+}
+
+/* Dark mode buttons */
+[data-theme="dark"] .btn {
+    color: #fff;
+}
+
+/* Dark mode hamburger menu */
+[data-theme="dark"] .hamburger span {
+    background-color: var(--text-color);
+}
+
+/* Dark mode testimonials page */
+[data-theme="dark"] .testimonials-section,
+[data-theme="dark"] section.testimonials-section {
+    background-color: #121212 !important;
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-subtitle {
+    color: var(--text-color);
+}
+
+/* Dark mode contact section */
+[data-theme="dark"] .contact {
+    background: var(--hero-bg);
+}
+
+/* Dark mode thank you page */
+[data-theme="dark"] body {
+    background-color: #121212;
+}
+
+/* Dark mode resume modal */
+[data-theme="dark"] .modal-content {
+    background-color: #1e1e1e;
+    background-image: none;
+    border: 1px solid #2d3748;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .modal-header h2 {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] .close-modal {
+    color: #f8f9fa;
+    background-color: transparent;
+}
+
+[data-theme="dark"] .close-modal:hover {
+    color: #6C63FF;
+    background-color: transparent;
+}
+
+[data-theme="dark"] .modal-body {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] .modal-body p,
+[data-theme="dark"] .modal-body li,
+[data-theme="dark"] .modal-body a {
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .modal-body a {
+    color: #6C63FF;
+}
+
+[data-theme="dark"] .thank-you-section {
+    background-color: #121212;
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] .thank-you-content {
+    background-color: #1e1e1e;
+    border: 1px solid #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .thank-you-icon {
+    background-color: transparent;
+}
+
+[data-theme="dark"] .icon-circle {
+    background-color: #6C63FF;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+[data-theme="dark"] .thank-you-icon i {
+    color: white;
+    font-size: 40px;
+}
+
+[data-theme="dark"] .thank-you-content h1 {
+    color: #6C63FF;
+}
+
+[data-theme="dark"] .thank-you-content p {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(18, 18, 18, 0.98);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .nav-links a {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] .logo a {
+    color: #f8f9fa;
+}
+
+/* Fix email and location icons in dark mode */
+[data-theme="dark"] .contact-item i {
+    background: var(--primary-color);
+    color: white;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}

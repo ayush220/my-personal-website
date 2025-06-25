@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimonials | Ayush Rahangdale</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -231,7 +232,7 @@
         </div>
     </header>
 
-    <section class="testimonials-section">
+    <section class="testimonials-section" id="testimonials-main-section">
         <div class="container">
             <h2 class="section-title">What People Say</h2>
             <p class="section-subtitle">Feedback from colleagues I've worked with</p>
@@ -322,6 +323,17 @@
         </div>
     </footer>
 
+    <!-- Theme Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+    </div>
+    
     <!-- Scripts moved to head with defer attribute -->
+    <script src="js/theme.js"></script>
 </body>
 </html>
