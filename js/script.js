@@ -37,8 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission handling
+    // Form submission handling with EmailJS
     const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -46,17 +48,39 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
+            const subject = document.getElementById('subject').value || 'Message from website';
             const message = document.getElementById('message').value;
             
-            // Log form data to console
-            console.log('Form submitted:', { name, email, subject, message });
+            // Show sending status
+            formStatus.textContent = 'Sending message...';
+            formStatus.style.color = '#6C63FF';
             
-            // Reset the form
-            contactForm.reset();
+            // Send email using Email.js service
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message
+            };
             
-            // Redirect to thank you page
-            window.location.href = 'thank-you.html';
+            // EmailJS configuration
+            emailjs.send('service_fe4qvxr', 'template_nipmwqm', templateParams, 'l_pp6ArA4M8facPzS')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    formStatus.textContent = 'Message sent successfully!';
+                    formStatus.style.color = 'green';
+                    contactForm.reset();
+                    
+                    // Redirect to thank you page after a short delay
+                    setTimeout(function() {
+                        window.location.href = 'thank-you.html';
+                    }, 2000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                    formStatus.style.color = 'red';
+                });
         });
     }
     

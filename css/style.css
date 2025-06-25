@@ -749,6 +749,13 @@ nav {
     margin-top: 10px;
 }
 
+.form-status {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    min-height: 24px;
+}
+
 /* Footer */
 footer {
     background-color: var(--dark-color);

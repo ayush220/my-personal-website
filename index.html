@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('l_pp6ArA4M8facPzS');
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -123,13 +129,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- Google Form integration -->
-                    <div class="google-form-container">
-                        <iframe id="contact-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdCVlDJOH7FxRvDPQQeOTJD2Uu_HHK-JJNmrLwKuqFbLLuDpA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                    </div>
-                    
-                    <!-- Hidden native form for styling reference -->
-                    <form id="contactForm" style="display: none;">
+                    <form id="contactForm" action="#" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -143,6 +143,7 @@
                             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p id="form-status" class="form-status"></p>
                     </form>
                 </div>
             </div>
