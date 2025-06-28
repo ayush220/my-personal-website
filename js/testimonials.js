@@ -14,16 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sample testimonials data - this would be replaced by your actual data
     const testimonials = [
         {
-            name: "Priyabrata Tripathy",
-            position: "Senior Consultant",
-            company: "Deloitte India (Offices of the US)",
-            content: "Ayush is highly skilled in Java, having developed various libraries as well as complex modules for the project team and mentored junior developers in coding best practices. It was a pleasure working with him on a fast-paced automation project."
-        },
-        {
-            name: "Jane Smith",
-            position: "Tech Lead",
-            company: "Acme Technologies",
-            content: "Working with Ayush was a great experience. His attention to detail and problem-solving skills made our project successful. He consistently delivered high-quality code and was always willing to help team members."
+            name: "Test Name",
+            position: "Test Position",
+            company: "Test Company",
+            content: "Test Content"
         }
     ];
     
