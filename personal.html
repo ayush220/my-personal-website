@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Side | Ayush Rahangdale</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .personal-header {
+            padding: 180px 0 100px;
+            background: var(--hero-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+        
+        .personal-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .personal-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .friends-quote {
+            margin-top: 20px;
+        }
+        
+        .quote-line {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .quote-person {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .personal-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .personal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .personal-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .modal-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-body h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--text-color);
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        /* Kanjoos/MInimalist Modal Styles */
+        .kanjoos-content {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .kanjoos-point {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .kanjoos-point h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .kanjoos-point ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .kanjoos-point li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .kanjoos-quote {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            font-size: 1.2rem;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .kanjoos-quote .quote-author {
+            margin-top: 10px;
+            font-weight: 600;
+            font-style: normal;
+            color: var(--primary-color);
+        }
+        
+        .kanjoos-tips {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .kanjoos-tips h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">Ayush Rahangdale</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="personal.html" class="active">Personal</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="personal-header">
+        <div class="container">
+            <h1>Life Outside the Code</h1>
+            <div class="friends-quote">
+                <p class="quote-line"><span class="quote-person">You:</span> "So, you're much more than a software developer?"</p>
+                <p class="quote-line"><span class="quote-person">Me:</span> "<em>So</em> much more !! 😄😄 "</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="personal-content">
+        <div class="container">
+            <div class="personal-grid" style="justify-items: center; gap: 30px;">
+                <!-- Minimalist Card -->
+                <div class="personal-card" onclick="openModal('minimalist-modal')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Minimalist room" style="object-position: center 30%;">
+                    </div>
+                    <div class="card-content">
+                        <h3>Me Being a Minimalist</h3>
+                        <p>Me: "I'm a minimalist"<br>People: "You're just kanjoos!"<br>Well... they're not completely wrong 😄</p>
+                    </div>
+                </div>
+                
+                <!-- RCB Fan Card -->
+                <div class="personal-card" style="width: 100%;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #1a3e72, #d5152c); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white; width: 100%;">
+                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 5px;">RCB</div>
+                            <div style="font-size: 0.9rem; letter-spacing: 0.5px; margin-bottom: 3px;">ROYAL CHALLENGERS</div>
+                            <div style="font-size: 1.1rem; font-weight: bold;">BANGALORE</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Me Being an RCB Fan</h3>
+                        <p>Well, No modal expansion needed to explain this.<br>If you know me, you know this!!<br>Still loves to rewatch 3/6/25 moments 🎉</p>
+                    </div>
+                </div>
+                
+                <!-- Thoughts Card -->
+                <div class="personal-card" style="width: 100%; cursor: pointer;" onclick="openModal('thoughts-modal')">
+                    <div class="card-image" style="height: 200px; overflow: hidden; background-color: #f0f4f8;">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Random thoughts" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                    </div>
+                    <div class="card-content">
+                        <h3>Thoughts on Random Things</h3>
+                        <p>Just some random curious thoughts here<br>💭✨🤔<br>Click to explore more!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Ayush Rahangdale</a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ayush2208" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ayush Rahangdale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+    </div>
+    
+    <!-- Minimalist Modal -->
+    <div id="minimalist-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('minimalist-modal'); return false;" style="cursor: pointer;">&times;</span>
+            <div class="modal-image" style="height: 180px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Minimalist room" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <h3 style="margin: 0 0 15px 0; color: var(--primary-color);">Me Being a Minimalist</h3>
+                <p style="font-size: 1rem; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-light);">
+                    Me: "I'm a minimalist"<br>People: "You're just kanjoos!"<br>Well... they're not completely wrong 😄
+                </p>
+                <div style="padding: 15px 0 0; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0; color: var(--text-color);">
+                        Well, this is one thing I am very open about and not at all ashamed about.
+                        I don't like spending money on things... just not my thing. Like, too much shopping or parties.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thoughts List Modal -->
+    <div id="thoughts-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <span class="close" onclick="closeModal('thoughts-modal'); return false;" style="cursor: pointer;">&times;</span>
+            <div style="padding: 20px;">
+                <h2 style="margin-top: 0; color: var(--primary-color);">My Random Thoughts</h2>
+                
+                <!-- Thought Cards Container -->
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Thought 1 -->
+                    <div class="thought-card" onclick="openThoughtModal('thought1')">
+                        <h3>Humanity in AI age</h3>
+                    </div>
+                    
+                    <!-- Thought 2 -->
+                    <div class="thought-card" onclick="openThoughtModal('thought2')">
+                        <h3>The Paradox of Choice</h3>
+                        <p>Why more options don't always mean more happiness...</p>
+                    </div>
+                    
+                    <!-- Thought 3 -->
+                    <div class="thought-card" onclick="openThoughtModal('thought3')">
+                        <h3>Digital Minimalism</h3>
+                        <p>Finding focus in an age of constant distraction...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Individual Thought Modals -->
+    <div id="thought1" class="modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <div style="padding: 25px;">
+                <div class="modal-header">
+                    <button class="back-button" onclick="backToThoughts('thought1'); return false;">Back to Thoughts</button>
+                    <span class="close" onclick="closeModal('thought1'); return false;" style="cursor: pointer;">&times;</span>
+                </div>
+                <h2 style="margin-top: 0; color: var(--primary-color);">Humanity in AI age</h2>
+                <div style="margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                    <p style="color: #333;">Okay, I am really thinking on this things nowadays. </p>
+                </div>
+                <p style="font-style: italic; color: #666; text-align: right;">— Ayush, June 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="thought2" class="modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <div style="padding: 25px;">
+                <div class="modal-header">
+                    <button class="back-button" onclick="backToThoughts('thought2'); return false;">Back to Thoughts</button>
+                    <span class="close" onclick="closeModal('thought2'); return false;" style="cursor: pointer;">&times;</span>
+                </div>
+                <h2 style="margin-top: 0; color: var(--primary-color);">The Paradox of Choice</h2>
+                <div style="margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                    <p>In today's world, we're constantly bombarded with choices - from the mundane (which brand of toothpaste to buy) to the significant (which career path to pursue). While having options is generally seen as positive, there's a point where too many choices can lead to decision fatigue and decreased satisfaction.</p>
+                    <p>I've found that implementing constraints in my own life - whether it's limiting my wardrobe choices or setting boundaries around work hours - has paradoxically led to greater freedom and happiness. Sometimes, less really is more.</p>
+                </div>
+                <p style="font-style: italic; color: #666; text-align: right;">— Ayush, May 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="thought3" class="modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <div style="padding: 25px;">
+                <div class="modal-header">
+                    <button class="back-button" onclick="backToThoughts('thought3'); return false;">Back to Thoughts</button>
+                    <span class="close" onclick="closeModal('thought3'); return false;" style="cursor: pointer;">&times;</span>
+                </div>
+                <h2 style="margin-top: 0; color: var(--primary-color);">Digital Minimalism</h2>
+                <div style="margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                    <p>In an age where our attention is constantly pulled in a dozen different directions by notifications, emails, and social media, I've been experimenting with digital minimalism. It's not about rejecting technology outright, but about being more intentional with how we use it.</p>
+                    <p>Some practices I've found helpful: scheduling specific times to check email, using website blockers during focused work sessions, and keeping my phone out of the bedroom. The goal isn't to be disconnected, but to ensure that technology serves us rather than the other way around.</p>
+                </div>
+                <p style="font-style: italic; color: #666; text-align: right;">— Ayush, April 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .back-button:hover {
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .back-button::before {
+            content: '←';
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        
+
+        
+        .thought-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid var(--primary-color);
+            color: #333; /* Default text color for all text in the card */
+        }
+        
+        .thought-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .thought-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .thought-card p {
+            margin: 0;
+            color: #666; /* Darker color for better readability */
+        }
+    </style>
+
+    <script>
+        function openThoughtModal(modalId) {
+            // Close the thoughts list modal
+            document.getElementById('thoughts-modal').style.display = 'none';
+            // Open the specific thought modal
+            document.getElementById(modalId).style.display = 'flex';
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function backToThoughts(modalId) {
+            closeModal(modalId);
+            document.getElementById('thoughts-modal').style.display = 'flex';
+        }
+        
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modals = document.getElementsByClassName('modal');
+                let foundOpenModal = false;
+                
+                // Find the top-most open modal
+                for (let modal of modals) {
+                    if (modal.style.display === 'flex') {
+                        foundOpenModal = true;
+                        modal.style.display = 'none';
+                        
+                        // If it was a thought detail modal, open the thoughts list
+                        if (modal.id.startsWith('thought') && modal.id !== 'thoughts-modal') {
+                            document.getElementById('thoughts-modal').style.display = 'flex';
+                        }
+                        break;
+                    }
+                }
+                
+                if (!foundOpenModal) {
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
