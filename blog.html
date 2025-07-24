@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Ayush Rahangdale</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -18,7 +19,8 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html" class="active">Blogs</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -32,150 +34,55 @@
 
     <section class="page-header">
         <div class="container">
-            <h1>Blog</h1>
+            <h1>Blogs</h1>
         </div>
     </section>
 
     <section class="blog-section">
         <div class="container">
-            <div class="blog-layout">
-                <div class="blog-main">
-                    <article class="blog-post">
-                        <div class="blog-post-image">
-                            <img src="https://via.placeholder.com/800x500" alt="Blog Post 1">
-                        </div>
-                        <div class="blog-post-content">
-                            <div class="blog-post-meta">
-                                <span class="post-date">June 25, 2025</span>
-                                <span class="post-category">Web Development</span>
-                            </div>
-                            <h2 class="blog-post-title">Getting Started with Modern Web Development</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo vel nisl tincidunt aliquet. Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <p>Mauris auctor, felis eget tempus venenatis, velit diam finibus nisi, vel tincidunt nunc eros vel nisi. Donec fermentum, nunc vel finibus tincidunt, nisl nisl aliquam nisl, vel aliquam nisl nisl sit amet nisl.</p>
-                            <p>Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <div class="blog-post-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post">
-                        <div class="blog-post-image">
-                            <img src="https://via.placeholder.com/800x500" alt="Blog Post 2">
-                        </div>
-                        <div class="blog-post-content">
-                            <div class="blog-post-meta">
-                                <span class="post-date">June 20, 2025</span>
-                                <span class="post-category">Design</span>
-                            </div>
-                            <h2 class="blog-post-title">UI/UX Design Principles for Beginners</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo vel nisl tincidunt aliquet. Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <p>Mauris auctor, felis eget tempus venenatis, velit diam finibus nisi, vel tincidunt nunc eros vel nisi. Donec fermentum, nunc vel finibus tincidunt, nisl nisl aliquam nisl, vel aliquam nisl nisl sit amet nisl.</p>
-                            <p>Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <div class="blog-post-tags">
-                                <span>Design</span>
-                                <span>UI</span>
-                                <span>UX</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post">
-                        <div class="blog-post-image">
-                            <img src="https://via.placeholder.com/800x500" alt="Blog Post 3">
-                        </div>
-                        <div class="blog-post-content">
-                            <div class="blog-post-meta">
-                                <span class="post-date">June 15, 2025</span>
-                                <span class="post-category">Career</span>
-                            </div>
-                            <h2 class="blog-post-title">How to Land Your First Web Development Job</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo vel nisl tincidunt aliquet. Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <p>Mauris auctor, felis eget tempus venenatis, velit diam finibus nisi, vel tincidunt nunc eros vel nisi. Donec fermentum, nunc vel finibus tincidunt, nisl nisl aliquam nisl, vel aliquam nisl nisl sit amet nisl.</p>
-                            <p>Proin in magna vel dui fermentum lacinia. Nullam eget lectus vel eros efficitur bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at lorem vel nisi tempor efficitur.</p>
-                            <div class="blog-post-tags">
-                                <span>Career</span>
-                                <span>Job Search</span>
-                                <span>Portfolio</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <div class="pagination">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#" class="next">Next &raquo;</a>
-                    </div>
-                </div>
-
-                <aside class="blog-sidebar">
-                    <div class="sidebar-widget search-widget">
-                        <h3>Search</h3>
-                        <form class="search-form">
-                            <input type="text" placeholder="Search...">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-
-                    <div class="sidebar-widget categories-widget">
-                        <h3>Categories</h3>
-                        <ul>
-                            <li><a href="#">Web Development <span>(5)</span></a></li>
-                            <li><a href="#">Design <span>(3)</span></a></li>
-                            <li><a href="#">Career <span>(2)</span></a></li>
-                            <li><a href="#">Technology <span>(4)</span></a></li>
-                            <li><a href="#">Tutorials <span>(6)</span></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-widget recent-posts-widget">
-                        <h3>Recent Posts</h3>
-                        <div class="recent-posts">
-                            <div class="recent-post">
-                                <img src="https://via.placeholder.com/100x100" alt="Recent Post 1">
-                                <div>
-                                    <h4><a href="#">Getting Started with Modern Web Development</a></h4>
-                                    <span>June 25, 2025</span>
-                                </div>
-                            </div>
-                            <div class="recent-post">
-                                <img src="https://via.placeholder.com/100x100" alt="Recent Post 2">
-                                <div>
-                                    <h4><a href="#">UI/UX Design Principles for Beginners</a></h4>
-                                    <span>June 20, 2025</span>
-                                </div>
-                            </div>
-                            <div class="recent-post">
-                                <img src="https://via.placeholder.com/100x100" alt="Recent Post 3">
-                                <div>
-                                    <h4><a href="#">How to Land Your First Web Development Job</a></h4>
-                                    <span>June 15, 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-widget tags-widget">
-                        <h3>Tags</h3>
-                        <div class="tags">
-                            <a href="#">HTML</a>
-                            <a href="#">CSS</a>
-                            <a href="#">JavaScript</a>
-                            <a href="#">Design</a>
-                            <a href="#">UI</a>
-                            <a href="#">UX</a>
-                            <a href="#">Career</a>
-                            <a href="#">Portfolio</a>
-                            <a href="#">React</a>
-                        </div>
-                    </div>
-                </aside>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog cards will be dynamically inserted here -->
             </div>
         </div>
     </section>
+
+    <!-- Blog Modal Template -->
+    <div class="modal blog-modal" id="blogModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <article class="blog-full">
+                <h2 class="blog-title"></h2>
+                <div class="blog-meta">
+                    <span class="blog-date"></span>
+                </div>
+                <div class="blog-content"></div>
+                <div class="blog-comments-section">
+                    <h3>Comments</h3>
+                    <div class="comments-list"></div>
+                    <button class="add-comment-btn">Add Comment</button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Comment Modal Template -->
+    <div class="modal comment-modal" id="commentModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Add a Comment</h3>
+            <form id="commentForm" class="comment-form">
+                <div class="form-group">
+                    <label for="commenterName">Name</label>
+                    <input type="text" id="commenterName" required>
+                </div>
+                <div class="form-group">
+                    <label for="commentText">Comment</label>
+                    <textarea id="commentText" required></textarea>
+                </div>
+                <button type="submit" class="submit-comment">Submit Comment</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -187,14 +94,13 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/ayush2208/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -203,6 +109,22 @@
         </div>
     </footer>
 
+    <!-- Theme Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        window.createClient = supabase.createClient;
+    </script>
+    <script src="js/theme.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/blog.js"></script>
 </body>
 </html>
